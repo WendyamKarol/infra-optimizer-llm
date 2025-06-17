@@ -19,9 +19,9 @@ class MonitoringData(BaseModel):
     uptime_seconds: int
     temperature_celsius: float
     power_consumption_watts: float
-    service_status: dict
+    service_status: dict    
 
-def ingest_data(path="rapport.json") -> List[MonitoringData]:
+def ingest_data(path="data/rapport.json") -> List[MonitoringData]:
     file_path = Path(__file__).parent.parent / path
 
     if not file_path.exists():
@@ -36,10 +36,9 @@ def ingest_data(path="rapport.json") -> List[MonitoringData]:
     monitoring_objects = [MonitoringData(**entry) for entry in raw_data]
     return monitoring_objects
 
-"""
+
 # Test direct
 if __name__ == "__main__":
     data_list = ingest_data()
     for i, data in enumerate(data_list, 1):
         print(f"Entrée {i} : {data.timestamp} | CPU : {data.cpu_usage}% | Service Status : {data.service_status}")
-"""

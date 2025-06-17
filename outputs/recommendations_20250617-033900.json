@@ -1,0 +1,17 @@
+{
+  "summary": "Résumé des anomalies détectées :\n- CPU: 47 occurrence(s)\n- LATENCY: 49 occurrence(s)\n- SERVICE: 75 occurrence(s)\n- MEMORY: 13 occurrence(s)\n- DISK: 30 occurrence(s)",
+  "recommendation": [
+    "1. Augmenter la capacité du CPU ou optimiser l'utilisation du CPU par les applications.",
+    "2. Mettre en place des outils de surveillance de la latence pour identifier les goulots d'étranglement et les résoudre.",
+    "3. Vérifier la configuration des services, optimiser leur utilisation et leur répartition sur les serveurs.",
+    "4. Augmenter la mémoire disponible ou optimiser l'utilisation de la mémoire par les applications.",
+    "5. Vérifier l'état des disques, envisager de passer à des disques SSD pour une performance accrue.",
+    "6. Mettre en place un système de mise en cache pour réduire la latence et la charge sur les disques.",
+    "7. Mettre en œuvre une stratégie de répartition de charge pour équilibrer la charge entre les serveurs.",
+    "8. Mettre en place des outils de surveillance et d'alerte pour détecter rapidement les problèmes de performance.",
+    "9. Optimiser les requêtes et les transactions de base de données pour réduire la charge sur les serveurs.",
+    "10. Mettre à jour le système d'exploitation et les logiciels pour bénéficier des dernières améliorations de performance.",
+    "11. Envisager l'utilisation de la virtualisation pour optimiser l'utilisation des ressources.",
+    "12. Mettre en place une politique de gestion des ressources pour éviter"
+  ]
+}

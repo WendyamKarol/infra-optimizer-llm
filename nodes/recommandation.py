@@ -1,53 +1,45 @@
+
+from openai import OpenAI
 import os
-from typing import List
 from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
-from langchain.schema import HumanMessage
 
-# Charger la clé API OpenAI depuis le fichier .env
 load_dotenv()
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-# Initialisation du modèle LLM
-llm = ChatOpenAI(
-    openai_api_key=os.getenv("OPENAI_API_KEY"),
-    model="gpt-4o",
-    temperature=0
-)
+def summarize_anomalies(anomalies: list[dict]) -> str:
+    
+    if not anomalies:
+        return "Aucune anomalie détectée."
 
-def generate_recommendations(anomalies: List[str]) -> str:
- 
-    prompt = f"""
-    Tu es un expert en architecture technique et optimisation de performance.
+    types_counter = {}
+    for a in anomalies:
+        for t in a.get("type", []):
+            types_counter[t] = types_counter.get(t, 0) + 1
 
-    Voici une liste d’anomalies détectées :
-    {anomalies}
+    lines = [f"- {k.upper()}: {v} occurrence(s)" for k, v in types_counter.items()]
+    summary = "Résumé des anomalies détectées :\n" + "\n".join(lines)
+    return summary
 
-    Pour chaque anomalie, fournis une recommandation technique précise.
-    Formate la réponse comme un JSON de ce type :
+def generate_recommandation(anomaly_summary: str) -> str:
+    prompt = f"""Tu es un ingénieur DevOps expert en performance applicative.
 
-    {{
-        "anomalies": [
-            {{
-                "description": "CPU usage is too high.",
-                "recommendation": "Répartir la charge sur plusieurs machines ou augmenter les ressources CPU."
-            }}
-        ]
-    }}
-    """
+Voici un résumé d’anomalies détectées dans une infrastructure :
 
-    messages = [HumanMessage(content=prompt)]
-    result = llm.invoke(messages)
-    return result.content
+{anomaly_summary}
 
-# Test local direct
-if __name__ == "__main__":
-    test_anomalies = [
-        "CPU usage is too high.",
-        "Latency is too high.",
-        "API Gateway is degraded."
-    ]
-    print("📋 Anomalies simulées :", test_anomalies)
-    print("\n🧠 Appel au LLM pour recommandations...")
-    recommendations = generate_recommendations(test_anomalies)
-    print("\n✅ Rapport généré :\n")
-    print(recommendations)
+Donne-moi des recommandations techniques sous forme de liste, claires et concises, pour optimiser les performances de l'infrastructure. 
+Retourne uniquement une liste (sans introduction ni conclusion), chaque recommandation sur une ligne."""
+
+    response = client.chat.completions.create(
+        model="gpt-4",
+        messages=[
+            {"role": "system", "content": "Tu es un expert en infrastructure et optimisation système."},
+            {"role": "user", "content": prompt}
+        ],
+        temperature=0.4,
+        max_tokens=300
+    )
+
+    text = response.choices[0].message.content.strip()
+    lines = [line.strip("-• \n") for line in text.split("\n") if line.strip()]
+    return lines

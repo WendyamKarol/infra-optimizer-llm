@@ -1,0 +1,16 @@
+{
+  "summary": "Résumé des anomalies détectées :\n- CPU: 47 occurrence(s)\n- LATENCY: 49 occurrence(s)\n- SERVICE: 75 occurrence(s)\n- MEMORY: 13 occurrence(s)\n- DISK: 30 occurrence(s)",
+  "recommendation": [
+    "1. Analyser l'utilisation du CPU pour identifier les processus qui consomment le plus de ressources et optimiser ou réduire leur utilisation.",
+    "2. Mettre en place un monitoring en temps réel du CPU pour anticiper les pics d'utilisation et réagir rapidement.",
+    "3. Réduire la latence en optimisant le réseau, en utilisant des techniques comme le load balancing ou le caching.",
+    "4. Vérifier la configuration des services pour s'assurer qu'ils sont correctement dimensionnés et optimisés pour la charge de travail.",
+    "5. Mettre à jour ou remplacer les services qui génèrent des erreurs ou qui ne fonctionnent pas correctement.",
+    "6. Surveiller l'utilisation de la mémoire et identifier les fuites de mémoire potentielles dans les applications.",
+    "7. Optimiser l'utilisation de la mémoire en utilisant des techniques comme la pagination ou la mise en cache.",
+    "8. Vérifier l'état du disque dur, nettoyer les fichiers inutiles et défragmenter le disque si nécessaire.",
+    "9. Optimiser l'utilisation du disque en répartissant la charge de travail sur plusieurs disques ou en utilisant des techniques de stockage plus efficaces.",
+    "10. Mettre en place une surveillance en temps réel de l'utilisation du disque pour anticiper les problèmes et réagir rapidement.",
+    "11. Considérer"
+  ]
+}

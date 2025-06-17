@@ -1,5 +1,5 @@
 from typing import List, Tuple
-from data_ingestion import MonitoringData
+from nodes.data_ingestion import MonitoringData
 
 def detect_anomaly(data: MonitoringData) -> bool:
     if data.cpu_usage > 80:
