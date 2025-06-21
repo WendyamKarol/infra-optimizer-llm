@@ -2,7 +2,7 @@ from typing import List
 import json
 from pydantic import BaseModel
 from pathlib import Path
-#import logging
+
 
 class MonitoringData(BaseModel):
     timestamp: str
@@ -22,23 +22,27 @@ class MonitoringData(BaseModel):
     service_status: dict    
 
 def ingest_data(path="data/rapport.json") -> List[MonitoringData]:
-    file_path = Path(__file__).parent.parent / path
+    file_path = Path(path)
+    
+    # Si le chemin est relatif, le convertir depuis la racine du projet
+    if not file_path.is_absolute():
+        file_path = Path(__file__).parent.parent / file_path
 
     if not file_path.exists():
         raise FileNotFoundError(f"❌Fichier introuvable à : {file_path.resolve()}")
 
-    with open(file_path) as f:
+    with open(file_path, encoding="utf-8") as f:
         raw_data = json.load(f)
 
     if not isinstance(raw_data, list):
         raise ValueError("Le fichier JSON doit contenir une liste d'objets.")
 
-    monitoring_objects = [MonitoringData(**entry) for entry in raw_data]
-    return monitoring_objects
+    return [MonitoringData(**entry) for entry in raw_data]
 
 
+"""
 # Test direct
 if __name__ == "__main__":
     data_list = ingest_data()
     for i, data in enumerate(data_list, 1):
-        print(f"Entrée {i} : {data.timestamp} | CPU : {data.cpu_usage}% | Service Status : {data.service_status}")
+        print(f"Entrée {i} : {data.timestamp} | CPU : {data.cpu_usage}% | Service Status : {data.service_status}")"""

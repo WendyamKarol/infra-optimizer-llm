@@ -1,30 +1,37 @@
-from typing import List, Tuple
-from nodes.data_ingestion import MonitoringData
+from typing import Dict, List
+from nodes.data_ingestion import MonitoringData,ingest_data
 
-def detect_anomaly(data: MonitoringData) -> bool:
+def detect_anomaly(data: MonitoringData) -> Dict:
+    anomaly_reasons = []
+
     if data.cpu_usage > 80:
-        return True
+        anomaly_reasons.append("High CPU usage")
     if data.latency_ms > 200:
-        return True
+        anomaly_reasons.append("High latency")
     if data.error_rate > 0.05:
-        return True
+        anomaly_reasons.append("High error rate")
     if data.temperature_celsius > 75:
-        return True
+        anomaly_reasons.append("High temperature")
     if data.service_status.get("api_gateway") == "degraded":
-        return True
-    return False
+        anomaly_reasons.append("API Gateway degraded")
 
-def detect_anomalies_batch(data_list: List[MonitoringData]) -> List[Tuple[MonitoringData, bool]]:
-    results = []
-    for data in data_list:
-        anomaly = detect_anomaly(data)
-        results.append((data, anomaly))
-    return results
-"""
+    return {
+        "timestamp": data.timestamp,
+        "metrics": data,
+        "is_anomaly": bool(anomaly_reasons),
+        "anomaly_reasons": anomaly_reasons
+    }
+
+def detect_anomalies_batch(data_list: List[MonitoringData]) -> List[Dict]:
+    return [detect_anomaly(data) for data in data_list]
+
+# Test manuel pour executer le fichier directement
 if __name__ == "__main__":
-    from data_ingestion import ingest_data
+
     data_list = ingest_data()
     results = detect_anomalies_batch(data_list)
-    for d, is_anomaly in results:
-        status = "❌ ANOMALIE" if is_anomaly else "✅ Normal"
-        print(f"{d.timestamp} | CPU: {d.cpu_usage}% | Latency: {d.latency_ms}ms | Status: {status}")"""
+    
+    for result in results:
+        status = "❌ ANOMALIE" if result["is_anomaly"] else "✅ Normal"
+        reasons = ", ".join(result["anomaly_reasons"])
+        print(f"{result['timestamp']} | Status: {status} | Reasons: {reasons}")

@@ -1,0 +1,172 @@
+[
+  {
+    "timestamp": "2023-10-01T12:00:00Z",
+    "cpu_usage": 93,
+    "memory_usage": 86,
+    "latency_ms": 334,
+    "disk_usage": 89,
+    "network_in_kbps": 2541,
+    "network_out_kbps": 2137,
+    "io_wait": 12,
+    "thread_count": 143,
+    "active_connections": 126,
+    "error_rate": 0.12,
+    "uptime_seconds": 360000,
+    "temperature_celsius": 84,
+    "power_consumption_watts": 356,
+    "service_status": {
+      "database": "online",
+      "api_gateway": "degraded",
+      "cache": "online"
+    }
+  },
+  {
+    "timestamp": "2023-10-01T12:30:00Z",
+    "cpu_usage": 57,
+    "memory_usage": 66,
+    "latency_ms": 139,
+    "disk_usage": 61,
+    "network_in_kbps": 1171,
+    "network_out_kbps": 1193,
+    "io_wait": 3,
+    "thread_count": 145,
+    "active_connections": 51,
+    "error_rate": 0.02,
+    "uptime_seconds": 361800,
+    "temperature_celsius": 58,
+    "power_consumption_watts": 253,
+    "service_status": {
+      "database": "online", 
+      "api_gateway": "online",
+      "cache": "online"
+    }
+  },
+  {
+    "timestamp": "2023-10-01T13:00:00Z",
+    "cpu_usage": 56,
+    "memory_usage": 68,
+    "latency_ms": 136,
+    "disk_usage": 62,
+    "network_in_kbps": 1316,
+    "network_out_kbps": 1147,
+    "io_wait": 3,
+    "thread_count": 147,
+    "active_connections": 49,
+    "error_rate": 0.02,
+    "uptime_seconds": 363600,
+    "temperature_celsius": 59,
+    "power_consumption_watts": 242,
+    "service_status": {
+      "database": "online",
+      "api_gateway": "online",
+      "cache": "online"
+    }
+  },
+  {
+    "timestamp": "2023-10-01T13:30:00Z",
+    "cpu_usage": 53,
+    "memory_usage": 62,
+    "latency_ms": 142,
+    "disk_usage": 58,
+    "network_in_kbps": 1090,
+    "network_out_kbps": 1121,
+    "io_wait": 3,
+    "thread_count": 154,
+    "active_connections": 51,
+    "error_rate": 0.02,
+    "uptime_seconds": 365400,
+    "temperature_celsius": 62,
+    "power_consumption_watts": 240,
+    "service_status": {
+      "database": "online",
+      "api_gateway": "online",
+      "cache": "online"
+    }
+  },
+  {
+    "timestamp": "2023-10-01T14:00:00Z",
+    "cpu_usage": 52,
+    "memory_usage": 67,
+    "latency_ms": 123,
+    "disk_usage": 61,
+    "network_in_kbps": 1086,
+    "network_out_kbps": 1123,
+    "io_wait": 3,
+    "thread_count": 145,
+    "active_connections": 48,
+    "error_rate": 0.02,
+    "uptime_seconds": 367200,
+    "temperature_celsius": 59,
+    "power_consumption_watts": 249,
+    "service_status": {
+      "database": "online",
+      "api_gateway": "online",
+      "cache": "online"
+    }
+  },
+  {
+    "timestamp": "2023-10-01T14:30:00Z",
+    "cpu_usage": 56,
+    "memory_usage": 65,
+    "latency_ms": 117,
+    "disk_usage": 61,
+    "network_in_kbps": 1271,
+    "network_out_kbps": 1179,
+    "io_wait": 2,
+    "thread_count": 152,
+    "active_connections": 48,
+    "error_rate": 0.02,
+    "uptime_seconds": 369000,
+    "temperature_celsius": 63,
+    "power_consumption_watts": 258,
+    "service_status": {
+      "database": "online",
+      "api_gateway": "online",
+      "cache": "online"
+    }
+  },
+  {
+    "timestamp": "2023-10-01T15:00:00Z",
+    "cpu_usage": 73,
+    "memory_usage": 79,
+    "latency_ms": 213,
+    "disk_usage": 77,
+    "network_in_kbps": 1506,
+    "network_out_kbps": 1618,
+    "io_wait": 6,
+    "thread_count": 165,
+    "active_connections": 73,
+    "error_rate": 0.04,
+    "uptime_seconds": 370800,
+    "temperature_celsius": 67,
+    "power_consumption_watts": 290,
+    "service_status": {
+      "database": "online",
+      "api_gateway": "degraded",
+      "cache": "degraded"
+    }
+  },
+  {
+    "timestamp": "2023-10-01T15:30:00Z",
+    "cpu_usage": 72,
+    "memory_usage": 76,
+    "latency_ms": 232,
+    "disk_usage": 73,
+    "network_in_kbps": 1455,
+    "network_out_kbps": 1391,
+    "io_wait": 5,
+    "thread_count": 157,
+    "active_connections": 69,
+    "error_rate": 0.04,
+    "uptime_seconds": 372600,
+    "temperature_celsius": 71,
+    "power_consumption_watts": 272,
+    "service_status": {
+      "database": "online",
+      "api_gateway": "degraded",
+      "cache": "degraded"
+    }
+  }
+]
+
+
