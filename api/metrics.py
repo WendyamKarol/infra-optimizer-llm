@@ -2,6 +2,8 @@ from fastapi import APIRouter
 from fastapi.responses import JSONResponse
 from nodes.visualization import get_metric_timeseries
 
+
+# Création d'un routeur FastAPI pour regrouper les endpoints liés aux métriques
 router = APIRouter()
 
 @router.get("/metric/{metric_name}")

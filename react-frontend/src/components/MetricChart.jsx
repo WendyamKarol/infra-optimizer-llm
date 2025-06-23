@@ -11,6 +11,7 @@ import {
   Dot,
 } from "recharts";
 
+// Liste des métriques disponibles dans le dropdown
 const AVAILABLE_METRICS = [
   "cpu_usage",
   "latency_ms",
@@ -25,6 +26,7 @@ const MetricChart = ({ refreshKey }) => {
   const [data, setData] = useState([]);
   const [selectedReasons, setSelectedReasons] = useState([]);
 
+  // Appel API dès que metricName ou refreshKey change
   useEffect(() => {
     axios
       .get(`http://localhost:8000/api/metric/${metricName}`)
@@ -36,6 +38,7 @@ const MetricChart = ({ refreshKey }) => {
       });
   }, [metricName, refreshKey]);
 
+  // Affiche un point rouge si l'entrée est une anomalie
   const renderDot = (props) => {
     const { cx, cy, payload } = props;
     return payload.is_anomaly ? (
@@ -43,6 +46,7 @@ const MetricChart = ({ refreshKey }) => {
     ) : null;
   };
 
+  // Quand on clique sur "Analyser ce point", appel API analyse
   const handleAnalyzePoint = async (timestamp) => {
     try {
       const res = await axios.get(
@@ -63,6 +67,7 @@ const MetricChart = ({ refreshKey }) => {
     }
   };
 
+  // Composant personnalisé pour afficher le tooltip (infobulle)
   const CustomTooltip = ({ active, payload }) => {
     if (active && payload && payload.length) {
       const point = payload[0].payload;

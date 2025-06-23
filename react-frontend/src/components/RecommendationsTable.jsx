@@ -1,5 +1,6 @@
 import React from "react";
 
+// Composant de tableau affichant les recommandations générées par le LLM
 const RecommendationsTable = ({ recommendations }) => {
   if (!recommendations || recommendations.length === 0) {
     return (
@@ -11,7 +12,7 @@ const RecommendationsTable = ({ recommendations }) => {
 
   return (
     <div style={{ marginTop: "30px" }}>
-      <h3>🧠 Recommandations générées par le LLM</h3>
+      <h3>Recommandations générées par le LLM</h3>
       <div style={{ overflowX: "auto" }}>
         <table
           border="1"

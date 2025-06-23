@@ -8,6 +8,18 @@ load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def generate_recommendations(anomaly_report: Dict) -> List[Dict]:
+    """
+    Génère des recommandations structurées à partir d’un rapport d’anomalies détectées.
+
+    Paramètre :
+    - anomaly_report : dictionnaire contenant une clé 'anomaly_reasons', une liste d’anomalies.
+
+    Retour :
+    - Liste de recommandations (dictionnaires) contenant :
+        - type : type d’anomalie
+        - explanation : explication de l’anomalie
+        - suggestion : recommandation concrète
+    """
     reasons = anomaly_report.get("anomaly_reasons", [])
     if not reasons:
         return []

@@ -46,7 +46,7 @@ async def analyze_and_recommend(file: UploadFile = File(...)) -> Dict:
     tasks = [generate_recommendations_async(anomaly) for anomaly in filtered]
     results = await asyncio.gather(*tasks)
 
-    # Etape 6 : Fusion timestamp + reco
+    # Etape 6 : Fusion timestamp + recommandations 
     all_recos = []
     for anomaly, recos in zip(filtered, results):
         for reco in recos:

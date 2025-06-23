@@ -53,7 +53,7 @@ def get_metric_timeseries(metric_name: str, json_path: str = "data/latest_upload
         "data": data
     }
 
-# 🎯 Test local dans ce fichier
+"""# 🎯 Test local dans ce fichier
 if __name__ == "__main__":
     metric = "cpu_usage"  # 🔁 Change pour tester d’autres : latency_ms, error_rate, etc.
     print(f"\n📊 Aperçu de la métrique : {metric}")
@@ -68,3 +68,4 @@ if __name__ == "__main__":
     print("\n📈 Échantillon des données :")
     for row in result["data"][:10]:
         print(f"{row['timestamp']} | {row['value']} | Anomalie: {row['is_anomaly']} | Raisons: {row['reasons']}")
+"""

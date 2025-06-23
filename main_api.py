@@ -13,7 +13,8 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# Middleware CORS pour permettre l'accès depuis un frontend (React, etc.)
+# Configuration du middleware CORS :
+# autorise les appels depuis n’importe quelle origine (utile pour développement frontend)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  
@@ -24,7 +25,13 @@ app.add_middleware(
 
 # Inclusion du routeur "analyze" dans l'application
 app.include_router(analyze_router, prefix="/analyze", tags=["Analyse"])
+
+# Routeur dédié uniquement à la génération de recommandations
 app.include_router(recommendations_router, prefix="/recommendations", tags=["Recommandations"])
+
+# Routeur combiné : détection + génération (chaîne complète de traitement)
 app.include_router(chain_router, prefix="/api/chain", tags=["Analyse + Recommandations"])
+
+# Routeur d’accès aux métriques pour la visualisation (séries temporelles)
 app.include_router(metrics_router, prefix="/api")
 
