@@ -25,7 +25,7 @@ def detect_anomaly(data: MonitoringData) -> Dict:
 def detect_anomalies_batch(data_list: List[MonitoringData]) -> List[Dict]:
     return [detect_anomaly(data) for data in data_list]
 
-"""# Test manuel pour executer le fichier directement
+# Test manuel pour executer le fichier directement
 if __name__ == "__main__":
 
     data_list = ingest_data()
@@ -35,4 +35,3 @@ if __name__ == "__main__":
         status = "❌ ANOMALIE" if result["is_anomaly"] else "✅ Normal"
         reasons = ", ".join(result["anomaly_reasons"])
         print(f"{result['timestamp']} | Status: {status} | Reasons: {reasons}")
-"""
