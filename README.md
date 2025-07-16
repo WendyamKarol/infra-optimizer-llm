@@ -1,35 +1,87 @@
 # 🚀 Infrastructure Optimizer
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
-![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
-![React](https://img.shields.io/badge/React-Frontend-blue)
-![Status](https://img.shields.io/badge/Status-Development-orange)
+**Infrastructure Optimizer** est une solution développée dans le cadre d’un POC pour une entreprise X, en réponse à une problématique concrète :  
 
-**Infrastructure Optimizer** est une application modulaire qui **ingère des données de monitoring JSON**, détecte automatiquement des **anomalies d’infrastructure** (CPU, mémoire, état des services) et **génère des recommandations intelligentes** pour optimiser les performances.
+> **Comment permettre à une PME française d’analyser automatiquement ses données de monitoring d’infrastructure (JSON), détecter des anomalies et générer des recommandations pertinentes grâce à un LLM ?**
 
-Elle fournit une **interface graphique interactive** en React pour visualiser les anomalies, filtrer les résultats et accéder aux recommandations générées par un LLM.
+Ce projet n’est donc pas une simple expérimentation personnelle, mais une **implémentation complète** (architecture + développement) pour répondre à un besoin réel.  
 
 ---
 
-## 🎯 Objectifs
+## 🎯 Contexte & Problématique
 
-✅ **Analyser dynamiquement** des fichiers JSON contenant des métriques d’infrastructure  
-✅ **Détecter les anomalies clés** (pannes, surcharges, dérives de performance)  
-✅ **Générer des recommandations structurées** via un LLM (GPT)  
-✅ Fournir une **interface simple et interactive** pour visualiser les résultats  
+Une PME française souhaitait :  
+
+- **Ingérer dynamiquement** des données de monitoring d’infrastructure au format JSON  
+- **Détecter automatiquement** des anomalies (CPU, mémoire, état des services)  
+- **Générer des recommandations claires et actionnables** grâce à un LLM (GPT-4o)  
+- **Disposer d’une interface utilisateur interactive** pour visualiser les résultats  
 
 ---
 
-## 🏗️ Architecture
+## ✅ Ma réponse : conception & développement complet
 
-L’application est composée de deux modules principaux :  
+Pour répondre à cette problématique, j’ai :  
+
+- **Conçu une architecture modulaire multi-nœuds** : Ingestion ➝ Détection ➝ Recommandation ➝ Visualisation  
+- **Choisi une stack technique moderne** :  
+  - **FastAPI** pour le backend asynchrone et les endpoints REST  
+  - **React + Recharts** pour une interface claire et interactive  
+  - **GPT-4o** pour générer des recommandations intelligentes  
+- **Développé l’application de bout en bout**, avec séparation claire des responsabilités et endpoints bien documentés  
+
+---
+
+## 🏗️ Architecture générale
 
 - **Backend (FastAPI)**  
-  - `POST /analyze` → Détection d’anomalies (CPU, mémoire, état des services…)  
-  - `POST /recommendations` → Génération de recommandations (type, explication, solution)  
-  - Orchestration des modules : ingestion, détection et génération  
+  - `POST /analyze` : détecte les anomalies dans les données JSON  
+  - `POST /recommendations` : génère des recommandations structurées via GPT  
+  - Asynchrone, robuste, découplé en modules testables  
 
 - **Frontend (React)**  
-  - Upload dynamique de fichiers JSON  
-  - Visualisation des anomalies sous forme de graphiques interactifs  
-  - Filtrage et consultation des recommandations  
+  - Upload dynamique des fichiers JSON  
+  - Visualisation des anomalies en graphes interactifs  
+  - Consultation filtrée des recommandations  
+
+
+## 🛠️ Stack technique & choix
+
+- **Langage :** Python → flexibilité & écosystème IA riche  
+- **Framework API :** FastAPI → asynchrone, léger, doc auto  
+- **LLM :** GPT-4o → recommandations naturelles & adaptables  
+- **Frontend :** React + Recharts → interface moderne & intuitive  
+
+*(Les choix techniques sont justifiés dans [docs/CHOIX_TECHNIQUES.md](docs/CHOIX_TECHNIQUES.md))*  
+
+---
+
+## ▶️ Résultat
+
+✅ Une solution modulaire et robuste répondant aux objectifs :  
+- Détection automatique d’anomalies  
+- Génération de recommandations claires  
+- Interface simple pour l’utilisateur final  
+
+---
+
+## 📌 Roadmap
+
+- ✅ Architecture modulaire  
+- ✅ Détection d’anomalies basique  
+- ✅ Recommandations via GPT  
+- ⏳ Analyse prédictive avancée  
+- ⏳ Dockerisation & déploiement cloud  
+
+---
+
+## 📜 Contexte
+
+Projet réalisé dans le cadre d’un **POC technique** pour optimiser l’infrastructure d’une PME fictive.  
+
+---
+
+## 👤 Auteur
+
+Karol NAZE  
+🔗 [LinkedIn](https://www.linkedin.com/in/karol-naze/) 
