@@ -3,7 +3,6 @@
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-Backend-green)
 ![React](https://img.shields.io/badge/React-Frontend-blue)
-![License](https://img.shields.io/badge/License-MIT-yellow)
 ![Status](https://img.shields.io/badge/Status-Development-orange)
 
 **Infrastructure Optimizer** est une application modulaire qui **ingère des données de monitoring JSON**, détecte automatiquement des **anomalies d’infrastructure** (CPU, mémoire, état des services) et **génère des recommandations intelligentes** pour optimiser les performances.
