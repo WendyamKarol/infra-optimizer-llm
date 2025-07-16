@@ -1,0 +1,27 @@
+# Node.js (frontend)
+node_modules/
+build/
+dist/
+
+# Python (backend)
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Env files
+.env
+*.env
+
+# Logs
+*.log
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Coverage / Tests
+.coverage
+pytest_cache/
